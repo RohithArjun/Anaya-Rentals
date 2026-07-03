@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/fleetService/pom.xml" />
         <option value="$PROJECT_DIR$/commonLibrary/commonLibrary/pom.xml" />
         <option value="$PROJECT_DIR$/notificationService/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>

@@ -6,13 +6,29 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="bookingService" />
-        <module name="commonLibrary" />
+        <module name="commonLibrary (2)" />
         <module name="carService" />
         <module name="fleetService" />
         <module name="notificationService" />
+        <module name="apiGateway" />
+        <module name="bookingService" />
+        <module name="authService" />
+      </profile>
+      <profile name="Annotation profile for Anaya Rentals - Common Library" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.6.3/mapstruct-processor-1.6.3.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.6.3/mapstruct-1.6.3.jar" />
+        </processorPath>
+        <module name="commonLibrary (1)" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="commonLibrary" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
@@ -20,7 +36,7 @@
       <module name="authService" options="-parameters" />
       <module name="bookingService" options="-parameters" />
       <module name="carService" options="-parameters" />
-      <module name="commonLibrary" options="-parameters" />
+      <module name="commonLibrary" options="" />
       <module name="fleetService" options="-parameters" />
       <module name="notificationService" options="-parameters" />
     </option>
