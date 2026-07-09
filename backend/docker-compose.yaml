@@ -10,7 +10,7 @@ services:
       POSTGRES_PASSWORD: 1234
       POSTGRES_DB: postgres
     ports:
-      - "5433:5432"
+      - "5433:5432" # Keeps your local bypass active
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
@@ -26,6 +26,8 @@ services:
       PGADMIN_DEFAULT_PASSWORD: 1234
     ports:
       - "5050:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin # <--- 1. ADD THIS LINE RIGHT HERE
     networks:
       - anaya-network
     depends_on:
@@ -40,19 +42,14 @@ services:
       - "9092:9092"
       - "9094:9094"
     environment:
-      # KRaft Setup (Replaces ZooKeeper)
       KAFKA_NODE_ID: 1
       KAFKA_PROCESS_ROLES: 'broker,controller'
       KAFKA_CONTROLLER_QUORUM_VOTERS: '1@kafka:9093'
-      
-      # Listeners (Internal docker networking vs local host machine access)
       KAFKA_LISTENERS: 'PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093,EXTERNAL://0.0.0.0:9094'
       KAFKA_ADVERTISED_LISTENERS: 'PLAINTEXT://kafka:9092,EXTERNAL://localhost:9094'
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: 'CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,EXTERNAL:PLAINTEXT'
       KAFKA_CONTROLLER_LISTENER_NAMES: 'CONTROLLER'
       KAFKA_INTER_BROKER_LISTENER_NAME: 'PLAINTEXT'
-      
-      # Single-node performance optimizations
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
@@ -72,4 +69,6 @@ volumes:
   postgres_data:
     driver: local
   kafka_data:
+    driver: local
+  pgadmin_data: # <--- 2. ADD THIS LINE TO THE VERY BOTTOM
     driver: local
