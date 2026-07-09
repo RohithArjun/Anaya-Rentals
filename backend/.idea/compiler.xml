@@ -6,7 +6,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="commonLibrary (2)" />
         <module name="carService" />
         <module name="fleetService" />
         <module name="notificationService" />
@@ -14,7 +13,7 @@
         <module name="bookingService" />
         <module name="authService" />
       </profile>
-      <profile name="Annotation profile for Anaya Rentals - Common Library" enabled="true">
+      <profile name="Annotation profile for Anaya Rentals - Backend Parent" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -23,11 +22,12 @@
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.6.3/mapstruct-processor-1.6.3.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.6.3/mapstruct-1.6.3.jar" />
         </processorPath>
-        <module name="commonLibrary (1)" />
+        <module name="commonLibrary (2)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="commonLibrary" target="21" />
+      <module name="commonLibrary (1)" target="21" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

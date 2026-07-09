@@ -10,7 +10,7 @@ services:
       POSTGRES_PASSWORD: 1234
       POSTGRES_DB: postgres
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
@@ -22,7 +22,7 @@ services:
     image: dpage/pgadmin4:latest
     container_name: anaya-pgadmin
     environment:
-      PGADMIN_DEFAULT_EMAIL: postgres
+      PGADMIN_DEFAULT_EMAIL: admin@anaya.com
       PGADMIN_DEFAULT_PASSWORD: 1234
     ports:
       - "5050:80"
